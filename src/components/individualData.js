@@ -12,7 +12,7 @@ const IndividualData = ({ url, userData }) => {
         setgitUserID(res.id);
       }
     });
-  }, [gitUserID]);
+  }, [gitUserID, url]);
 
   const parseDate = (dateString) => {
       let date = new Date(dateString);
