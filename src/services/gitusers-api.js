@@ -1,20 +1,14 @@
 import axios from "axios";
 
 const GitUser = {
-  getAllUsers: () =>
-    // axios.get(`https://api.github.com/users`).then(resp => {
-    //     console.log(resp,'EE')
-    //     return resp;
-    // })
-
-    axios.get("https://api.github.com/users", {
-        params: {
-          token: "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",
-        },
-      }).then((resp) => {
-        return resp;
-
-      }).catch((e) => console.log(e)),
+  getAllUsers: () => 
+      axios.get('https://api.github.com/users', { headers: { Authorization: 'Bearer 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' } })
+      .then(response => {
+          return response;
+        })
+      .catch((error) => {
+          console.log('error ' + error);
+      })
 };
 
 export { GitUser };

@@ -1,28 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { GitUser as gitUserAPI } from '../services/gitusers-api';
-
+import React, { useState, useEffect } from "react";
+import { GitUser as gitUserAPI } from "../services/gitusers-api";
 
 const Typeheads = () => {
-    const [gitUsers, setGitUsers] = useState(null);
+  const [gitUsers, setGitUsers] = useState([]);
+  const [gitUserID, setgitUserID] = useState(0);
 
-    useEffect(() => {
-        const getGitUsers = (users) => {
-            setGitUsers(users)
-        }
+  useEffect(() => {
+    gitUserAPI.getAllUsers().then((res) => {
+      if (res && res.data && res.status === 200) {
+        setGitUsers(res.data);
+        setgitUserID(res.data[0].id);
+      }
+      console.log(res, "bb", gitUsers, gitUserID);
+    });
+  }, [gitUserID]);
 
-        gitUserAPI.getAllUsers().then(res => {
-            // setGitUsers(res.data)
-            console.log(res,'bb',gitUsers)
-        });
-
-        // ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
-        // // Specify how to clean up after this effect:
-        // return function cleanup() {
-        //   ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
-        // };
-      },[]);
-
-  return <div className="flex-item">One</div>;
+  return (
+    <div className="flex-container">
+      {gitUsers.map((user) => (
+        <div key={user.id} className="flex-item">
+          <div>{user.login}</div>
+          <div>
+            <img src={user.avatar_url} alt="avatar"></img>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Typeheads;

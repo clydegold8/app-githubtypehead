@@ -5,9 +5,7 @@ import "./css/table-typeheads.css";
 const TableTypeheads = () => {
   return (
     <div className="container">
-      <div className="flex-container">
-        <Typeheads></Typeheads>
-      </div>
+      <Typeheads></Typeheads>
     </div>
   );
 };
