@@ -1,13 +1,15 @@
-import React from 'react';
-import Typeheads from './typeheads';
+import React from "react";
+import Typeheads from "./typeheads";
+import "./css/table-typeheads.css";
 
-function TableTypeheads(){
-
-    return(
-        <div className="container">
-            <Typeheads></Typeheads>
-        </div>
-    );
-}
+const TableTypeheads = () => {
+  return (
+    <div className="container">
+      <div className="flex-container">
+        <Typeheads></Typeheads>
+      </div>
+    </div>
+  );
+};
 
 export default TableTypeheads;

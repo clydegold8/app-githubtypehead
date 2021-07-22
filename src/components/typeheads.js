@@ -1,21 +1,7 @@
-import React from 'react';
-import './css/table-typeheads.css';
+import React from "react";
 
-function Typeheads(){
-
-    return(
-        <div className="flex-container">
-            <div className="flex-item">
-                One
-            </div>
-            <div className="flex-item">
-                Two
-            </div>
-            <div className="flex-item">
-                Three
-            </div>
-        </div>
-    );
-}
+const Typeheads = () => {
+  return <div className="flex-item">One</div>;
+};
 
 export default Typeheads;
