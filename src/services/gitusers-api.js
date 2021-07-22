@@ -5,6 +5,13 @@
   return response.json();
 }
 
+const getIndividualData = async (url = '') => {
+  const response = await fetch(url, {
+    method: 'GET'
+  });
+  return response.json();
+}
+
 const GitUser = {
 
   getAllUsers: () => 
@@ -13,7 +20,15 @@ const GitUser = {
         return response;
       }).catch((error) => {
           console.log('error ' + error);
-      })
+      }),
+
+  getIndividualUser: (url) => 
+    getIndividualData(url)
+        .then(response => {
+          return response;
+        }).catch((error) => {
+            console.log('error ' + error);
+        })
 };
 
 export { GitUser };

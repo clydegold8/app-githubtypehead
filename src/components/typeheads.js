@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GitUser as gitUserAPI } from "../services/gitusers-api";
+import IndividualData from "./individualData";
 
 const Typeheads = () => {
   const [gitUsers, setGitUsers] = useState([]);
@@ -18,10 +19,7 @@ const Typeheads = () => {
     <div className="flex-container">
       {gitUsers.map((user) => (
         <div key={user.id} className="flex-item">
-          <div>{user.login}</div>
-          <div>
-            <img src={user.avatar_url} alt="avatar"></img>
-          </div>
+            <IndividualData url={user.url} userData={user}></IndividualData>
         </div>
       ))}
     </div>
