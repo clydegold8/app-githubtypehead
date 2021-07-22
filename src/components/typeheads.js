@@ -7,11 +7,10 @@ const Typeheads = () => {
 
   useEffect(() => {
     gitUserAPI.getAllUsers().then((res) => {
-      if (res && res.data && res.status === 200) {
-        setGitUsers(res.data);
-        setgitUserID(res.data[0].id);
+      if (res) {
+        setGitUsers(res);
+        setgitUserID(res[0].id);
       }
-      console.log(res, "bb", gitUsers, gitUserID);
     });
   }, [gitUserID]);
 

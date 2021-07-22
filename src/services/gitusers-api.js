@@ -1,12 +1,20 @@
-import axios from "axios";
+ const getData = async (url = '') => {
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer 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'
+    }
+  });
+  return response.json();
+}
 
 const GitUser = {
+  
   getAllUsers: () => 
-      axios.get('https://api.github.com/users', { headers: { Authorization: 'Bearer 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' } })
+      getData('https://api.github.com/users')
       .then(response => {
-          return response;
-        })
-      .catch((error) => {
+        return response;
+      }).catch((error) => {
           console.log('error ' + error);
       })
 };
