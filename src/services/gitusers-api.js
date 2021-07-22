@@ -2,7 +2,7 @@
   const response = await fetch(url, {
     method: 'GET',
     headers: {
-      'Authorization': process.env.REACT_APP_TOKEN_APIGIT
+      'Authorization': 'Bearer '+process.env.REACT_APP_TOKEN_APIGIT
     }
   });
   return response.json();
@@ -12,7 +12,7 @@ const getIndividualData = async (url = '') => {
   const response = await fetch(url, {
     method: 'GET',
     headers: {
-      'Authorization': process.env.REACT_APP_TOKEN_APIGIT
+      'Authorization': 'Bearer '+process.env.REACT_APP_TOKEN_APIGIT
     }
   });
   return response.json();
