@@ -17,7 +17,13 @@ const GitUser = {
   getAllUsers: () => 
       getData('https://api.github.com/users')
       .then(response => {
-        return response;
+        if(response.length){
+          return response;
+        }else{
+          let resp = undefined;
+          return resp;
+        }
+        
       }).catch((error) => {
           console.log('error ' + error);
       }),
