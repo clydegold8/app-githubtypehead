@@ -1,15 +1,12 @@
  const getData = async (url = '') => {
   const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Authorization': 'Bearer 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'
-    }
+    method: 'GET'
   });
   return response.json();
 }
 
 const GitUser = {
-  
+
   getAllUsers: () => 
       getData('https://api.github.com/users')
       .then(response => {
