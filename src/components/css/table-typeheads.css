@@ -123,13 +123,16 @@
 .trueName {
   margin: 0px;
   text-transform: capitalize;
+  word-break: break-word;
 }
 .textBold {
   font-weight: bold;
+  word-break: break-word;
 }
 .loginName {
   font-size: 20px;
   font-style: italic;
+  word-break: break-word;
 }
 
 @media only screen and (max-width: 1000px) {
