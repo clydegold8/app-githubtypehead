@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { GitUser as gitUserAPI } from "../services/gitusers-api";
-import IndividualData from "./individualData";
 const LazyindividualData = React.lazy(() => import('./individualData'));
 
 const Typeheads = () => {
