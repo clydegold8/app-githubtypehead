@@ -25,11 +25,16 @@ const Typeheads = () => {
   return (
     <div className="flex-container">
       {((gitUsers.length>0) && !dataLoading && !isError)?gitUsers.map((user) => (
-        <div key={user.id} className="flex-item">
-            <Suspense fallback={<h1>Loading Individual Data Please Wait...</h1>}>
-              <LazyindividualData url={user.url} userData={user}></LazyindividualData>
-            </Suspense>
-        </div>
+        <Suspense fallback={
+          <div key={user.id} className="flex-item">
+            <h1 className="pulse-loading individualLoadingBx">Loading Individual Data Please Wait...</h1>
+          </div>
+        }>
+          <div key={user.id} className="flex-item">
+            <LazyindividualData url={user.url} userData={user}></LazyindividualData>
+          </div>  
+        </Suspense>
+
       )):
       ((gitUsers.length === 0) && dataLoading && isError)?
       <div className="flex-item">
